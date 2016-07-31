@@ -1,6 +1,6 @@
 // Code goes here
 angular.module('myApp', [])
-.controller('myCtrl', ['$scope', function() {
+.controller('myCtrl', [function() {
  this.searchAll = function (choice) {
     switch(choice) {
       case 1:
