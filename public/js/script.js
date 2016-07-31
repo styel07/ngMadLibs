@@ -1,7 +1,7 @@
 // Code goes here
 angular.module('myApp', [])
-.controller('myCtrl', ['$scope', function($scope) {
- $scope.searchAll = function (choice) {
+.controller('myCtrl', ['$scope', function() {
+ this.searchAll = function (choice) {
     switch(choice) {
       case 1:
         $scope.femaleName = "";
@@ -33,7 +33,7 @@ angular.module('myApp', [])
     }
 };
 
-$scope.init = function() {
+this.init = function() {
   $scope.femaleName='sarah';
   $scope.dirtyTask='mud shoveling';
   $scope.obnoxiuousCelberity='Miley Cyrus';
