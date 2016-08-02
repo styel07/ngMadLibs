@@ -1,47 +1,58 @@
 // Code goes here
 angular.module('myApp', [])
-.controller('myCtrl', [function() {
- this.searchAll = function (choice) {
+.controller('myCtrl', function() {
+var my = this;
+ my.searchAll = function (choice) {
     switch(choice) {
       case 1:
-        $scope.femaleName = "";
+        my.femaleName = "";
         break;
       case 2:
-        $scope.dirtyTask = "";
+        my.dirtyTask = "";
         break;
       case 3:
-        $scope.obnoxiuousCelberity = "";
+        my.obnoxiuousCelberity = "";
         break;
       case 4:
-        $scope.jobTitle = "";
+        my.jobTitle = "";
         break;
       case 5:
-        $scope.celebrity = "";
+        my.celebrity = "";
         break;
       case 6:
-        $scope.hugeNumber = "";
+        my.hugeNumber = "";
         break;
       case 7:
-        $scope.tediousTask = "";
+        my.tediousTask = "";
         break;
       case 8:
-        $scope.uselessTask = "";
+        my.uselessTask = "";
         break;
       case 9:
-        $scope.adjective = "";
+        my.adjective = "";
         break;
     }
 };
 
-this.init = function() {
-  $scope.femaleName='sarah';
-  $scope.dirtyTask='mud shoveling';
-  $scope.obnoxiuousCelberity='Miley Cyrus';
-  $scope.jobTitle = 'Programmer';
-  $scope.celebrity='Will Smith';
-  $scope.hugeNumber='100000';
-  $scope.tediousTask='folding clothes';
-  $scope.uselessSkill = 'juggle';
-  $scope.adjective = 'robust';
+
+my.init = function() {
+  my.page = true;
+  my.femaleName='sarah';
+  my.dirtyTask='mud shoveling';
+  my.obnoxiuousCelberity='Miley Cyrus';
+  my.jobTitle = 'Programmer';
+  my.celebrity='Will Smith';
+  my.hugeNumber='100000';
+  my.tediousTask='folding clothes';
+  my.uselessSkill = 'juggle';
+  my.adjective = 'robust';
 };
-}]);
+
+my.changeView = function() {
+  console.log('before',my.page);
+  my.page = (my.page) ? false : true;
+
+  console.log('after', my.page);
+};
+
+});
