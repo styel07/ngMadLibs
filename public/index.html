@@ -8,80 +8,166 @@
     <script data-require="bootstrap@*" data-semver="4.0.0-alpha.2" src="https://cdn.rawgit.com/twbs/bootstrap/v4-dev/dist/js/bootstrap.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.1/angular.min.js"></script>
     <link rel="stylesheet" href="css/styles.css" />
-    <script src="js/script.js"></script>
   </head>
 
   <body ng-controller="myCtrl as my">
     <div class="container" ng-init="my.init()">
       <div class="row">
-        <div class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-6">
+        <div class="col-xs-12 col-sm-10 offset-sm-1 offset-md-1 col-md-6">
           <img src="image/happyface.png" alt="Smiley face" class="img-responsive">
         </div>
-        <div class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-6">
+        <div class="col-xs-12 col-sm-10 offset-sm-1 offset-md-1 col-md-6">
           <img src="image/logo.png" class="img-responsive">
         </div>
       </div>
-      <div class="row" ng-show="my.page">
-        <div class="col-sm-10 col-sm-offset-1">
-          <div class="row">
-            <div class="col-sm-10 col-sm-offset-1">
-              <h3>Provide the Words</h3>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-sm-4">
-              <input type="text" placeholder="femaleName" ng-model="femaleName" ng-click="searchAll(1)"/>
-            </div>
-            <div class="col-sm-4">
-              <input type="text" placeholder="dirtyTask" ng-model="dirtyTask" ng-click="searchAll(2)"/>
-            </div>
-            <div class="col-sm-4">
-              <input type="text" placeholder="obnoxiuousCelberity" ng-model="obnoxiuousCelberity" ng-click="searchAll(3)"/>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-sm-4">
-              <input type="text" placeholder="jobTitle" ng-model="jobTitle" ng-click="searchAll(4)"/>
-            </div>
-            <div class="col-sm-4">
-              <input type="text" placeholder="celebrity" ng-model="celebrity" ng-click="searchAll(5)"/>
-            </div>
-            <div class="col-sm-4">
-              <input type="text" placeholder="hugeNumber" ng-model="hugeNumber" ng-click="searchAll(6)"/>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-sm-4">
-              <input type="text" placeholder="tediousTask" ng-model="tediousTask" ng-click="searchAll(7)"/>
-            </div>
-            <div class="col-sm-4">
-              <input type="text" placeholder="uselessSkill" ng-model="uselessSkill" ng-click="searchAll(8)"/>
-            </div>
-            <div class="col-sm-4">
-              <input type="text" placeholder="adjective" ng-model="adjective" ng-click="searchAll(9)"/>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="row" ng-hide="my.page">
-      <!-- <div class="row"> -->
-        <div class="col-sm-10 col-sm-offset-1">
-          {{femaleName}} was a {{jobTitle}} who loved technology. Although she loved parts of her job, she absolutely hated
-          {{tediousTask}} and {{dirtyTask}}. So, {{femaleName}} met with her life mentor {{celebrity}} who told her to learn how to
-          {{uselessSkill}} with Thinkful. Thinkful didn't offer a course on {{uselessSkill}} so she studied programming instead.
-
-          What a great decision! With her new skills, {{femaleName}} built a(n) {{adjective}} robot named
-          {{obnoxiuousCelberity}} that not only loved {{dirtyTask}} but did it {{hugeNumber}} faster.
-        </div>
-      </div>
       <div class="row">
-        <div class="col-sm-10 col-sm-offset-1 col-md-4 text-center">
-          <button type="submit" ng-click="my.changeView()" class="btn btn-primary">Generate</button>
+        <form name="myForm" ng-submit="submit()" novalidate>
+          <div class="col-xs-10 offset-xs-1 col-sm-10 offset-sm-1 offset-md-1" ng-show="my.page">
+            <div class="row">
+              <div class="col-xs-10 offset-xs-1 col-sm-10 offset-sm-1 offset-md-1">
+                <h3>Provide the Words</h3>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-sm-4">
+                <input type="text" placeholder="femaleName"
+                       name="femaleName"
+                       ng-model="data.femaleName"
+                       ng-click="searchAll(1)"
+                       ng-minlength="2"
+                       ng-pattern="/^a/"
+                       required/>
+              </div>
+              <div class="col-sm-4">
+                <input type="text" placeholder="dirtyTask"
+                       name="dirtyTask"
+                       ng-model="data.dirtyTask"
+                       ng-click="searchAll(2)"
+                       name="dirtyTask"
+                       required/>
+              </div>
+              <div class="col-sm-4">
+                <input type="text" placeholder="obnoxiuousCelberity"
+                       name="obnoxiuousCelberity"
+                       ng-model="data.obnoxiuousCelberity"
+                       ng-click="searchAll(3)"
+                       required/>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-sm-4">
+                <input type="text" placeholder="jobTitle"
+                       name="jobTitle"
+                       ng-model="data.jobTitle"
+                       ng-click="searchAll(4)"
+                       required/>
+              </div>
+              <div class="col-sm-4">
+                <input type="text" placeholder="celebrity"
+                       name="celebrity"
+                       ng-model="data.celebrity"
+                       ng-click="searchAll(5)"
+                       required/>
+
+              </div>
+              <div class="col-sm-4">
+                <input type="number" placeholder="hugeNumber"
+                       name="hugeNumber"
+                       ng-model="data.hugeNumber"
+                       ng-click="searchAll(6)"
+                       required/>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-sm-4">
+                <input type="text" placeholder="tediousTask"
+                       name="tediousTask"
+                       ng-model="data.tediousTask"
+                       ng-click="searchAll(7)"
+                       required/>
+              </div>
+              <div class="col-sm-4">
+                <input type="text" placeholder="uselessSkill"
+                       name="uselessSkill"
+                       ng-model="data.uselessSkill"
+                       ng-click="searchAll(8)"
+                       required/>
+
+              </div>
+              <div class="col-sm-4">
+                <input type="text" placeholder="adjective"
+                       name="adjective"
+                       ng-model="data.adjective"
+                       ng-click="searchAll(9)"
+                       required/>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row" ng-hide="my.page">
+          <div class="offset-xs-4 col-xs-4  col-sm-4 offset-sm-4 col-md-4 offset-md-4">
+            {{data.femaleName}} was a {{data.jobTitle}} who loved technology. Although she loved parts of her job, she absolutely hated
+            {{data.tediousTask}} and {{data.dirtyTask}}. So, {{data.femaleName}} met with her life mentor {{data.celebrity}} who told her to learn how to
+            {{data.uselessSkill}} with Thinkful. Thinkful didn't offer a course on {{data.uselessSkill}} so she studied programming instead.
+
+            What a great decision! With her new skills, {{data.femaleName}} built a(n) {{data.adjective}} robot named
+            {{data.obnoxiuousCelberity}} that not only loved {{data.dirtyTask}} but did it {{data.hugeNumber}} faster.
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xs-10 offset-xs-1 col-sm-10 offset-sm-1 offset-md-1 col-md-4 text-center">
+            <button type="submit" class="btn btn-primary center-block">{{my.buttonValue}}</button>
+          </div>
+        </div>
+
+      <div class="row">
+        <div class="col-xs-10 offset-xs-1 col-sm-10 offset-sm-1 offset-md-1">
+          <div ng-if="myForm.$submitted" ng-messages="myForm.femaleName.$error">
+            <span class="error" ng-message="required">Female Name is required!</span>
+            <span class="error" ng-message="minlength">Field is too short, Should be more than 2 letters!!</span>
+            <span class="error" ng-message="pattern">Name should begin with an 'a'</span>
+          </div>
+          <div ng-if="myForm.$submitted" ng-messages="myForm.dirtyTask.$error">
+            <span class="error" ng-message="required">Dirty Task Field is required!</span>
+            <span class="error" ng-message="">Dirty Task Field is required!</span>
+          </div>
+          <div ng-if="myForm.$submitted" ng-messages="myForm.obnoxiuousCelberity.$error">
+            <span class="error" ng-message="required">Obnoxiuous Celberity Field is required!</span>
+            <span class="error" ng-message="">Obnoxiuous Celberity Field is required!</span>
+          </div>
+          <div ng-if="myForm.$submitted" ng-messages="myForm.jobTitle.$error">
+            <span class="error" ng-message="required">Job Title Field is required!</span>
+            <span class="error" ng-message="">Job Title Field is required!</span>
+          </div>
+          <div ng-if="myForm.$submitted" ng-messages="myForm.celebrity.$error">
+            <span class="error" ng-message="required">Celebrity Field Field is required!</span>
+            <span class="error" ng-message="">Celebrity Field is required!</span>
+          </div>
+          <div ng-if="myForm.$submitted" ng-messages="myForm.hugeNumber.$error">
+            <span class="error" ng-message="required">Huge Number Field is required!</span>
+            <span class="error" ng-message="">Huge Number Field is required!</span>
+          </div>
+          <div ng-if="myForm.$submitted" ng-messages="myForm.tediousTask.$error">
+            <span class="error" ng-message="required">Tedious Field Field is required!</span>
+            <span class="error" ng-message="">Tedious Field is required!</span>
+          </div>
+          <div ng-if="myForm.$submitted" ng-messages="myForm.uselessSkill.$error">
+            <span class="error" ng-message="required">Useless Skill Field is required!</span>
+            <span class="error" ng-message="">Useless Skill Field is required!</span>
+          </div>
+          <div ng-if="myForm.$submitted" ng-messages="myForm.adjective.$error">
+            <span class="error" ng-message="required">Adjective Field is required!</span>
+            <span class="error" ng-message="">Adjective Field is required!</span>
+          </div>
         </div>
       </div>
+
+    </form>
+
     </div>
 
+    <script src="js/script.js"></script>
+    <script src="js/angular-messages.min.js"></script>
   </body>
 
 </html>

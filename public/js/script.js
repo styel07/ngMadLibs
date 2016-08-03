@@ -1,6 +1,6 @@
 // Code goes here
-angular.module('myApp', [])
-.controller('myCtrl', function() {
+angular.module('myApp', ['ngMessages'])
+.controller('myCtrl', function($scope) {
 var my = this;
  my.searchAll = function (choice) {
     switch(choice) {
@@ -37,6 +37,7 @@ var my = this;
 
 my.init = function() {
   my.page = true;
+  my.buttonValue = 'Generate';
   my.femaleName='sarah';
   my.dirtyTask='mud shoveling';
   my.obnoxiuousCelberity='Miley Cyrus';
@@ -49,10 +50,21 @@ my.init = function() {
 };
 
 my.changeView = function() {
-  console.log('before',my.page);
-  my.page = (my.page) ? false : true;
+  // console.log('before',my.page);
+  // console.log('after', my.page);
+};
 
-  console.log('after', my.page);
+$scope.submit = function(){
+  console.log($scope.data);
+  console.log('Form is valid?',$scope.myForm.$invalid);
+  if( $scope.myForm.$valid ) {
+    my.page = (my.page) ? false : true;
+    my.buttonValue = (my.page) ? 'Generate' : 'Reset';
+      console.log('The form is valid');
+  } else {
+      console.log('The form is invalid');
+  }
+
 };
 
 });
