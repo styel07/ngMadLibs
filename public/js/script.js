@@ -54,10 +54,10 @@ my.changeView = function() {
   // console.log('after', my.page);
 };
 
-$scope.submit = function(){
-  console.log($scope.data);
-  console.log('Form is valid?',$scope.myForm.$invalid);
-  if( $scope.myForm.$valid ) {
+my.submit = function(){
+  console.log(my.data);
+  console.log('Form is valid?', my.myForm.$invalid);
+  if( my.myForm.$valid ) {
     my.page = (my.page) ? false : true;
     my.buttonValue = (my.page) ? 'Generate' : 'Reset';
       console.log('The form is valid');

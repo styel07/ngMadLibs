@@ -21,7 +21,7 @@
         </div>
       </div>
       <div class="row">
-        <form name="myForm" ng-submit="submit()" novalidate>
+        <form name="my.myForm" ng-submit="my.submit()" novalidate>
           <div class="col-xs-10 offset-xs-1 col-sm-10 offset-sm-1 offset-md-1" ng-show="my.page">
             <div class="row">
               <div class="col-xs-10 offset-xs-1 col-sm-10 offset-sm-1 offset-md-1">
@@ -32,8 +32,8 @@
               <div class="col-sm-4">
                 <input type="text" placeholder="femaleName"
                        name="femaleName"
-                       ng-model="data.femaleName"
-                       ng-click="searchAll(1)"
+                       ng-model="my.data.femaleName"
+                       ng-click="my.searchAll(1)"
                        ng-minlength="2"
                        ng-pattern="/^a/"
                        required/>
@@ -41,16 +41,16 @@
               <div class="col-sm-4">
                 <input type="text" placeholder="dirtyTask"
                        name="dirtyTask"
-                       ng-model="data.dirtyTask"
-                       ng-click="searchAll(2)"
+                       ng-model="my.data.dirtyTask"
+                       ng-click="my.searchAll(2)"
                        name="dirtyTask"
                        required/>
               </div>
               <div class="col-sm-4">
                 <input type="text" placeholder="obnoxiuousCelberity"
                        name="obnoxiuousCelberity"
-                       ng-model="data.obnoxiuousCelberity"
-                       ng-click="searchAll(3)"
+                       ng-model="my.data.obnoxiuousCelberity"
+                       ng-click="my.searchAll(3)"
                        required/>
               </div>
             </div>
@@ -58,23 +58,23 @@
               <div class="col-sm-4">
                 <input type="text" placeholder="jobTitle"
                        name="jobTitle"
-                       ng-model="data.jobTitle"
-                       ng-click="searchAll(4)"
+                       ng-model="my.data.jobTitle"
+                       ng-click="my.searchAll(4)"
                        required/>
               </div>
               <div class="col-sm-4">
                 <input type="text" placeholder="celebrity"
                        name="celebrity"
-                       ng-model="data.celebrity"
-                       ng-click="searchAll(5)"
+                       ng-model="my.data.celebrity"
+                       ng-click="my.searchAll(5)"
                        required/>
 
               </div>
               <div class="col-sm-4">
                 <input type="number" placeholder="hugeNumber"
                        name="hugeNumber"
-                       ng-model="data.hugeNumber"
-                       ng-click="searchAll(6)"
+                       ng-model="my.data.hugeNumber"
+                       ng-click="my.searchAll(6)"
                        required/>
               </div>
             </div>
@@ -82,23 +82,23 @@
               <div class="col-sm-4">
                 <input type="text" placeholder="tediousTask"
                        name="tediousTask"
-                       ng-model="data.tediousTask"
-                       ng-click="searchAll(7)"
+                       ng-model="my.data.tediousTask"
+                       ng-click="my.searchAll(7)"
                        required/>
               </div>
               <div class="col-sm-4">
                 <input type="text" placeholder="uselessSkill"
                        name="uselessSkill"
-                       ng-model="data.uselessSkill"
-                       ng-click="searchAll(8)"
+                       ng-model="my.data.uselessSkill"
+                       ng-click="my.searchAll(8)"
                        required/>
 
               </div>
               <div class="col-sm-4">
                 <input type="text" placeholder="adjective"
                        name="adjective"
-                       ng-model="data.adjective"
-                       ng-click="searchAll(9)"
+                       ng-model="my.data.adjective"
+                       ng-click="my.searchAll(9)"
                        required/>
               </div>
             </div>
@@ -106,12 +106,12 @@
         </div>
         <div class="row" ng-hide="my.page">
           <div class="offset-xs-1 col-xs-10  col-sm-10 offset-sm-1 col-md-10 offset-md-1">
-            {{data.femaleName}} was a {{data.jobTitle}} who loved technology. Although she loved parts of her job, she absolutely hated
-            {{data.tediousTask}} and {{data.dirtyTask}}. So, {{data.femaleName}} met with her life mentor {{data.celebrity}} who told her to learn how to
-            {{data.uselessSkill}} with Thinkful. Thinkful didn't offer a course on {{data.uselessSkill}} so she studied programming instead.
+            {{my.data.femaleName}} was a {{my.data.jobTitle}} who loved technology. Although she loved parts of her job, she absolutely hated
+            {{my.data.tediousTask}} and {{my.data.dirtyTask}}. So, {{my.data.femaleName}} met with her life mentor {{my.data.celebrity}} who told her to learn how to
+            {{my.data.uselessSkill}} with Thinkful. Thinkful didn't offer a course on {{my.data.uselessSkill}} so she studied programming instead.
 
-            What a great decision! With her new skills, {{data.femaleName}} built a(n) {{data.adjective}} robot named
-            {{data.obnoxiuousCelberity}} that not only loved {{data.dirtyTask}} but did it {{data.hugeNumber}} faster.
+            What a great decision! With her new skills, {{my.data.femaleName}} built a(n) {{my.data.adjective}} robot named
+            {{my.data.obnoxiuousCelberity}} that not only loved {{my.data.dirtyTask}} but did it {{my.data.hugeNumber}} faster.
           </div>
         </div>
         <div class="row">
@@ -122,40 +122,40 @@
 
       <div class="row">
         <div class="col-xs-10 offset-xs-1 col-sm-10 offset-sm-1 offset-md-1">
-          <div ng-if="myForm.$submitted" ng-messages="myForm.femaleName.$error">
+          <div ng-if="my.myForm.$submitted" ng-messages="my.myForm.femaleName.$error">
             <span class="error" ng-message="required">Female Name is required!</span>
             <span class="error" ng-message="minlength">Field is too short, Should be more than 2 letters!!</span>
             <span class="error" ng-message="pattern">Name should begin with an 'a'</span>
           </div>
-          <div ng-if="myForm.$submitted" ng-messages="myForm.dirtyTask.$error">
+          <div ng-if="my.myForm.$submitted" ng-messages="my.myForm.dirtyTask.$error">
             <span class="error" ng-message="required">Dirty Task Field is required!</span>
             <span class="error" ng-message="">Dirty Task Field is required!</span>
           </div>
-          <div ng-if="myForm.$submitted" ng-messages="myForm.obnoxiuousCelberity.$error">
+          <div ng-if="my.myForm.$submitted" ng-messages="my.myForm.obnoxiuousCelberity.$error">
             <span class="error" ng-message="required">Obnoxiuous Celberity Field is required!</span>
             <span class="error" ng-message="">Obnoxiuous Celberity Field is required!</span>
           </div>
-          <div ng-if="myForm.$submitted" ng-messages="myForm.jobTitle.$error">
+          <div ng-if="my.myForm.$submitted" ng-messages="my.myForm.jobTitle.$error">
             <span class="error" ng-message="required">Job Title Field is required!</span>
             <span class="error" ng-message="">Job Title Field is required!</span>
           </div>
-          <div ng-if="myForm.$submitted" ng-messages="myForm.celebrity.$error">
+          <div ng-if="my.myForm.$submitted" ng-messages="my.myForm.celebrity.$error">
             <span class="error" ng-message="required">Celebrity Field Field is required!</span>
             <span class="error" ng-message="">Celebrity Field is required!</span>
           </div>
-          <div ng-if="myForm.$submitted" ng-messages="myForm.hugeNumber.$error">
+          <div ng-if="my.myForm.$submitted" ng-messages="my.myForm.hugeNumber.$error">
             <span class="error" ng-message="required">Huge Number Field is required!</span>
             <span class="error" ng-message="">Huge Number Field is required!</span>
           </div>
-          <div ng-if="myForm.$submitted" ng-messages="myForm.tediousTask.$error">
+          <div ng-if="my.myForm.$submitted" ng-messages="my.myForm.tediousTask.$error">
             <span class="error" ng-message="required">Tedious Field Field is required!</span>
             <span class="error" ng-message="">Tedious Field is required!</span>
           </div>
-          <div ng-if="myForm.$submitted" ng-messages="myForm.uselessSkill.$error">
+          <div ng-if="my.myForm.$submitted" ng-messages="my.myForm.uselessSkill.$error">
             <span class="error" ng-message="required">Useless Skill Field is required!</span>
             <span class="error" ng-message="">Useless Skill Field is required!</span>
           </div>
-          <div ng-if="myForm.$submitted" ng-messages="myForm.adjective.$error">
+          <div ng-if="my.myForm.$submitted" ng-messages="my.myForm.adjective.$error">
             <span class="error" ng-message="required">Adjective Field is required!</span>
             <span class="error" ng-message="">Adjective Field is required!</span>
           </div>
