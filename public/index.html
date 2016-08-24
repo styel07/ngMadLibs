@@ -6,7 +6,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
     <link data-require="bootstrap@*" data-semver="4.0.0-alpha.2" rel="stylesheet" href="https://cdn.rawgit.com/twbs/bootstrap/v4-dev/dist/css/bootstrap.css" />
     <script data-require="bootstrap@*" data-semver="4.0.0-alpha.2" src="https://cdn.rawgit.com/twbs/bootstrap/v4-dev/dist/js/bootstrap.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.1/angular.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.1/angular.min.js"></script>
+    <script type="text/javascript" src="https://code.angularjs.org/1.5.8/angular-animate.js"></script>
     <link rel="stylesheet" href="css/styles.css" />
   </head>
 
@@ -106,17 +107,19 @@
         </div>
         <div class="row" ng-hide="my.page">
           <div class="offset-xs-1 col-xs-10  col-sm-10 offset-sm-1 col-md-10 offset-md-1">
-            {{my.data.femaleName}} was a {{my.data.jobTitle}} who loved technology. Although she loved parts of her job, she absolutely hated
-            {{my.data.tediousTask}} and {{my.data.dirtyTask}}. So, {{my.data.femaleName}} met with her life mentor {{my.data.celebrity}} who told her to learn how to
-            {{my.data.uselessSkill}} with Thinkful. Thinkful didn't offer a course on {{my.data.uselessSkill}} so she studied programming instead.
+            <span class="animate">{{my.data.femaleName}}</span> was a <span class="animate">{{my.data.jobTitle}}</span> who loved technology. Although she loved parts of her job, she absolutely hated
+            <span class="animate">{{my.data.tediousTask}}</span> and <span class="animate">{{my.data.dirtyTask}}</span>. So, <span class="animate">{{my.data.femaleName}}</span> met with her life mentor <span class="animate">{{my.data.celebrity}}</span> who told her to learn how to
+            <span class="animate">{{my.data.uselessSkill}}</span> with Thinkful. Thinkful didn't offer a course on <span class="animate">{{my.data.uselessSkill}}</span> so she studied programming instead.
 
-            What a great decision! With her new skills, {{my.data.femaleName}} built a(n) {{my.data.adjective}} robot named
-            {{my.data.obnoxiuousCelberity}} that not only loved {{my.data.dirtyTask}} but did it {{my.data.hugeNumber}} faster.
+            What a great decision! With her new skills, <span class="animate">{{my.data.femaleName}}</span> built a(n) <span class="animate">{{my.data.adjective}}</span> robot named
+            <span class="animate">{{my.data.obnoxiuousCelberity}}</span> that not only loved <span class="animate">{{my.data.dirtyTask}}</span> but did it <span class="animate">{{my.data.hugeNumber}}</span> faster.
           </div>
         </div>
         <div class="row">
           <div class="col-xs-10 offset-xs-1 col-sm-10 offset-sm-1 offset-md-1 col-md-4 text-center">
-            <button type="submit" class="btn btn-primary center-block">{{my.buttonValue}}</button>
+            <button type="submit" class="btn btn-primary center-block" ng-click="show=!show">{{my.buttonValue}}</button>
+            <div ng-if="show" class="content animate">Look at this content</div>
+            <div ng-if="!show" class="content animate">Hide this content</div>
           </div>
         </div>
 

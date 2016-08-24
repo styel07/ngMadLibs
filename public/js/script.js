@@ -1,5 +1,5 @@
 // Code goes here
-angular.module('myApp', ['ngMessages'])
+angular.module('myApp', ['ngMessages','ngAnimate'])
 .controller('myCtrl', function($scope) {
 var my = this;
  my.searchAll = function (choice) {

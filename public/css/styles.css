@@ -1,1 +1,27 @@
 /* Styles go here */
+.animate {
+  background-color: red;
+  overflow: hidden;
+  /*margin-left: -2em;*/
+}
+
+.animate.ng-enter span.animate, .animate.ng-leave {
+    transition: all linear 2.5s;
+}
+
+.animate.ng-enter span.animate,
+.animate.ng-leave.ng-leave-active {
+    /*opacity: 0;*/
+    margin-left:-2em;
+
+    max-height:0;
+}
+
+.animate.ng-leave span.animate,
+.animate.ng-enter span.animate.ng-enter-active {
+    margin-left:0;
+    /*opacity: 1;*/
+    max-height:1em;
+}
+
+/*.my-page.ng-enter span.animate{}*/
